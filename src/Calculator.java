@@ -36,6 +36,20 @@ public class Calculator
     {
         int a = Integer.parseInt(tokens[1]); // Throws NumberFormatException if the second token is not an int value.
         // TODO: complete this...
+        int b;
+        if (tokens[0].equalsIgnoreCase("negate")) {
+        	b = a * -1;
+        	return b;
+        }
+        
+        else if (tokens[0].equalsIgnoreCase("halve")) {
+        	b = a / 2;
+        	return b;
+        }
+        
+        else {
+        	throw new CalculatorException("Illegal Command");
+        }
     }
 
     /**
