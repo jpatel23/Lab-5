@@ -196,6 +196,28 @@ public class Calculator
         // TODO: complete this...
         // Hint: you should try and call execute(). If execute encounters an error, it will throw an exception. This
         // method will catch those exceptions and respond accordingly.
+    	String[] command = input.split(" ");
     	
+    	try {
+    		int value = execute(command);
+    		if (value == Integer.MIN_VALUE) {
+    			return "quit";
+    		}
+    		else {
+    			 return String.format("The result is %d", value);	
+    		}
+    	}
+    	
+    	catch (ArithmeticException exception) {
+    		return "Attempted to divide by 0. Please try again.";
+    	}
+    	
+    	catch (NumberFormatException exception) {
+    		return "Input number cannot be parsed to an int. Please try again.";
+    	}
+    	
+    	catch (CalculatorException exception) {
+    		return String.format("Calculator Exception, message is: %s", exception);
+    	}
     }
 }
