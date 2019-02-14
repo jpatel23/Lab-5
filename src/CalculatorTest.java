@@ -56,13 +56,18 @@ public class CalculatorTest {
             Assert.fail("Unexpected Exception (not NumberFormatException) caught");
         }
     }
-
+    
     /**
      * Test invalid two-token input (command is not negate/halve):
      */
     public void calculateTwoTokensTestInvalidCommand() throws AssertException
     {
         // TODO: complete this test...
+    	try {
+    		Calculator.calculateTwoTokens(new String[] {"dsalja", "6"});
+    		Assert.fail("Illegal Command");
+    		}
+    	}
     }
 
     /**
