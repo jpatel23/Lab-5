@@ -156,7 +156,7 @@ public class Calculator
         	case 3:
         		return calculateThreeTokens(tokens);
         		
-        	case 4:
+        	default:
         		throw new CalculatorException("Illegal Token Length");
         }
 
@@ -196,5 +196,6 @@ public class Calculator
         // TODO: complete this...
         // Hint: you should try and call execute(). If execute encounters an error, it will throw an exception. This
         // method will catch those exceptions and respond accordingly.
+    	
     }
 }
