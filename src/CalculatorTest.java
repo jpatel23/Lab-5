@@ -27,7 +27,9 @@ public class CalculatorTest {
      */
     public void calculateTwoTokensTestValidHalve() throws AssertException
     {
-        // TODO: complete this test...
+        try {
+        	int result = Calculator.calculateTwoTokens(new String[] {)
+        }
     }
 
     /**
