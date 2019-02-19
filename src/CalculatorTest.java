@@ -58,7 +58,7 @@ public class CalculatorTest {
     }
     
     /**
-     * Test invalid two-token input (command is not negate/halve):
+     * Test invalid two-token input (clommand is not negate/halve):
      */
     public void calculateTwoTokensTestInvalidCommand() throws AssertException
     {
@@ -67,6 +67,8 @@ public class CalculatorTest {
     		Calculator.calculateTwoTokens(new String[] {"dsalja", "6"});
     		Assert.fail("Illegal Command");
     		}
+    	catch (Exception e) {
+    		Assert.fail("");
     	}
     }
 

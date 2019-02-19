@@ -208,16 +208,16 @@ public class Calculator
     		}
     	}
     	
-    	catch (ArithmeticException exception) {
+    	catch (ArithmeticException e) {
     		return "Attempted to divide by 0. Please try again.";
     	}
     	
-    	catch (NumberFormatException exception) {
+    	catch (NumberFormatException e) {
     		return "Input number cannot be parsed to an int. Please try again.";
     	}
     	
-    	catch (CalculatorException exception) {
-    		return String.format("Calculator Exception, message is: %s", exception);
+    	catch (CalculatorException e) {
+    		return String.format("Calculator Exception, message is: %s", e.getMessage());
     	}
     }
 }
