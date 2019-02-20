@@ -67,8 +67,13 @@ public class CalculatorTest {
     		Calculator.calculateTwoTokens(new String[] {"dsalja", "6"});
     		Assert.fail("Illegal Command");
     		}
+    	
+    	catch (CalculatorException e) {
+    		
+    	}
+    	
     	catch (Exception e) {
-    		Assert.fail("Unexpected Exception (not NumberFormatException) caught");
+    		Assert.fail("Unexpected Exception (not CalculatorException) caught");
     	}
     }
 
@@ -94,6 +99,15 @@ public class CalculatorTest {
     public void calculateThreeTokensTestValidSubtract() throws AssertException
     {
         // TODO: complete this test...
+    	try {
+    		int result4 = Calculator.calculateThreeTokens(new String[] {"6", "-", "6"});
+    		Assert.assertEquals(0, result4);
+    		}
+    	
+    	catch(Exception e) {
+    		Assert.fail("Legal expression threw an Exception: " + e.getMessage());
+    	}
+    	
     }
 
     /**
@@ -102,6 +116,14 @@ public class CalculatorTest {
     public void calculateThreeTokensTestValidDivide() throws AssertException
     {
         // TODO: complete this test...
+    	try {
+    		int result5 = Calculator.calculateThreeTokens(new String[] {"18", "/", "3"});
+    		Assert.assertEquals(6, result5);
+    	}
+    	
+    	catch(Exception e) {
+    		Assert.fail("Legal expression threw an Exception: " + e.getMessage());
+    	}
     }
 
     /**
