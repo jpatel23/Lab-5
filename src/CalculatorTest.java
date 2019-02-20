@@ -170,6 +170,18 @@ public class CalculatorTest {
     public void calculateThreeTokensTestInvalidCommand() throws AssertException
     {
         // TODO: complete this test...
+    	try {
+    		Calculator.calculateThreeTokens(new String[] {"6", "*", "6"});
+    		Assert.fail("Illegal Command");
+    	}
+    	
+    	catch(CalculatorException e) {
+    		
+    	}
+    	
+    	catch(Exception e) {
+    		Assert.fail("Unexpected Exception (not CalculatorException) caught");
+    	}
     }
 
     /**
@@ -178,6 +190,14 @@ public class CalculatorTest {
     public void executeTestValidQuit() throws AssertException
     {
         // TODO: complete this test...
+    	try {
+    		int result = Calculator.execute(new String[] {"quit"});
+    		Assert.assertEquals(Integer.MIN_VALUE, result);
+    	}
+    	
+    	catch (CalculatorException e) {
+    		Assert.assertEquals("Illegal Command", e.getMessage());
+    	}
     }
 
     /**
@@ -202,6 +222,14 @@ public class CalculatorTest {
     public void executeTestValidThreeTokens() throws AssertException
     {
         // TODO: complete this test...
+    	try {
+    		int result = Calculator.execute(new String[] {"6", "+", "60"});
+    		Assert.assertEquals(66, result);
+    	}
+    	
+    	catch (Exception e) {
+    		Assert.fail("Legal expression threw an Exception: " + e.getMessage());
+    	}
     }
 
     /**
@@ -233,9 +261,34 @@ public class CalculatorTest {
     {
         // Token length is 0:
         // TODO: complete this test...
+    	try {
+    		Calculator.execute(new String[] {});
+    		Assert.fail("Illegal expression did not throw an Exception");
+    	}
+    	
+    	catch(CalculatorException e) {
+    		Assert.assertEquals("Illegal Token Length", e.getMessage());
+    	}
+    	
+    	catch (Exception e) {
+    		Assert.fail("Unexpected Exception (not CalculatorException) caught");
+    	}
 
         // Token length is > 3:
         // TODO: complete this test...
+    	try {
+    		Calculator.execute(new String[] {"6", "/", "6", "6"});
+    		Assert.fail("Illegal expression did not throw an Exception");
+    		}
+    	
+    	catch(CalculatorException e) {
+    		Assert.assertEquals("Illegal Token Length", e.getMessage());
+    	}
+    	
+    	catch (Exception e) {
+    		Assert.fail("Unexpected Exception (not CalculatorException) caught");
+    	}
+    	
     }
 
     /**
@@ -262,6 +315,8 @@ public class CalculatorTest {
     public void parseAndExecuteTestDivideByZero() throws AssertException
     {
         // TODO: complete this test...
+    	String result = Calculator.parseAndExecute("6 / 0");
+    	Assert.assertEquals("Attempted to divide by 0. Please try again.", result);
     }
 
     /**
@@ -270,6 +325,8 @@ public class CalculatorTest {
     public void parseAndExecuteTestInvalidNumber() throws AssertException
     {
         // TODO: complete this test...
+    	String result = Calculator.parseAndExecute("six + six");
+    	Assert.assertEquals("Input number cannot be parsed to an int. Please try again.", result);
     }
 
     /**
@@ -287,5 +344,7 @@ public class CalculatorTest {
     public void parseAndExecuteTestInvalidTokenLength() throws AssertException
     {
         // TODO: complete this test...
+    	String result = Calculator.parseAndExecute("6 + 6 6");
+    	Assert.assertEquals("Calculator Exception, message is: Illegal Token Length", result);
     }
 }

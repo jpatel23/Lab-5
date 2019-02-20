@@ -99,7 +99,7 @@ public class Calculator
     		return num1 / num2;
     	}
     	else {
-    		throw new CalculatorException("Invalid command");
+    		throw new CalculatorException("Illegal Command");
     	}
     	
     }
@@ -204,7 +204,7 @@ public class Calculator
     			return "quit";
     		}
     		else {
-    			 return String.format("The result is %d", value);	
+    			 return String.format("The result is: %d", value);	
     		}
     	}
     	
