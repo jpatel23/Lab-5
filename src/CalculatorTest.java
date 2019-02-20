@@ -58,7 +58,7 @@ public class CalculatorTest {
     }
     
     /**
-     * Test invalid two-token input (clommand is not negate/halve):
+     * Test invalid two-token input (command is not negate/halve):
      */
     public void calculateTwoTokensTestInvalidCommand() throws AssertException
     {
@@ -68,7 +68,7 @@ public class CalculatorTest {
     		Assert.fail("Illegal Command");
     		}
     	catch (Exception e) {
-    		Assert.fail("");
+    		Assert.fail("Unexpected Exception (not NumberFormatException) caught");
     	}
     }
 
@@ -78,6 +78,14 @@ public class CalculatorTest {
     public void calculateThreeTokensTestValidAdd() throws AssertException
     {
         // TODO: complete this test...
+    	try {
+    	int result3 = Calculator.calculateThreeTokens(new String[] {"6", "+", "6"});
+    	Assert.assertEquals(12, result3);
+    	}
+    	
+    	catch(Exception e) {
+    		Assert.fail("Legal expression threw an Exception: " + e.getMessage());
+    	}
     }
 
     /**
